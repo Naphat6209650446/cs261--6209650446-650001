@@ -13,30 +13,27 @@
         }
         .bg-color {
             background-color: #f5e1aa;
-            height: 100vh; 
+            min-height: 100vh; /* ใช้ min-height แทน height เพื่อให้ไม่ขาด */
             width: 100%;
-            position: 100%;
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
         }
         .info-container {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            position: relative; 
             width: 400px;
             max-width: 90%; 
             background-color: rgba(255, 255, 255, 0.85);
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            height: auto; 
-            margin-top: 20px; /* เพิ่มระยะห่างด้านบน */
         }
         .logout-container {
-            margin-top: 20px;
-            text-align: left;
+            text-align: right; /* จัดข้อความไปที่ขวา */
+            margin-top: 20px; /* เพิ่มระยะห่างด้านบน */
         }
         h2 {
-            margin-top: 0%;
+            margin-top: 0;
             margin-bottom: 20px; 
         }
     </style>
@@ -44,7 +41,7 @@
 <body>
     <div class="bg-color">
         <div class="info-container">
-            <h2 class="text-center">User Information</h2>
+            <h2 class="text-center">Your Profile</h2>
             <div class="mb-3">
                 <label class="form-label">Status</label>
                 <input type="text" class="form-control" id="status" placeholder="Status">
@@ -89,9 +86,9 @@
                 <label class="form-label">Faculty</label>
                 <input type="text" class="form-control" id="faculty" placeholder="Faculty">
             </div>
-
+            
             <div class="logout-container">
-                <button type="button" class="btn btn-danger w-100" onclick="window.location.href='login.html'">Logout</button>
+                <button type="button" class="btn btn-danger" onclick="window.location.href='login.html'">Logout</button>
             </div>
         </div>
     </div>
