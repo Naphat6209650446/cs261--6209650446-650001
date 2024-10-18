@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Form</title>
+    <title>Login Page</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- FontAwesome for Icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
@@ -15,15 +15,15 @@
             font-family: Arial, sans-serif;
         }
         .bg-color {
-            background-color: #f5e1aa; /* สีพื้นหลัง */
-            height: 100vh; /* ทำให้พื้นที่เต็มหน้าจอ */
+            background-color: #fdf5c9; 
+            height: 100vh;
             width: 100%;
             position: relative;
         }
         .bg-image {
-            margin-top: 40px;
+            margin-top: 0;
             background-image: url('img/Picture1.png');
-            height: calc(100vh - 40px); /* ลดความสูงลงเล็กน้อยเพื่อให้ไม่หาย */
+            height: calc(100vh - 40px);
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
@@ -37,29 +37,49 @@
             left: 50%;
             transform: translate(-50%, -50%);
             width: 340px;
+            margin-top: 20px;
             background-color: rgba(255, 255, 255, 0.85);
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            max-height: 90vh; /* กำหนดความสูงสูงสุดเพื่อไม่ให้กล่องทับ */
+            overflow-y: auto; /* ให้สามารถเลื่อนในแนวตั้งได้ */
+            padding-bottom: 40px;
+        }
+
+        .message-container {
+            background-color: #d0efff;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            max-width: 90%; /* จำกัดความกว้าง */
+            word-wrap: break-word; /* ให้ข้อความตัดบรรทัดถ้ามันยาวเกินไป */
+            overflow: hidden;
+        }
+
+        .message-container p {
+            margin-bottom: 10px;
+            line-height: 1.6;   
         }
 
         .logo-img {
             margin-top: 20px;
-            height: 25%; /* ปรับขนาดโลโก้ */
+            height: 20%;
         }
 
         .login-form {
             margin-top: 20px;
+            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
     <div class="bg-color">
-        <div style="text-align: center; margin-top: 20px; height: 100%;">
+        <div style="text-align: center; margin-top: 0; height: 100%;">
             <img src="img/TU.png" alt="TU" class="logo-img">
         </div>
         <div class="login-container">
-            <h2 class="text-center">LOGIN</h2>
+            <h2 class="text-center">Login Page</h2>
             <form class="login-form">
                 <div class="mb-3">
                     <label for="username" class="form-label">Username</label>
@@ -75,11 +95,14 @@
                         <input type="password" class="form-control" id="password" placeholder="Enter password">
                     </div>
                 </div>
-                <button type="button" onclick="window.location.href='submitLogin.html'" class="btn btn-primary w-100">LOGIN</button>
+                <button type="button" onclick="submitLogin()" class="btn btn-primary w-100">submit</button>
             </form>
+            <!-- Status and Message Display -->
+            <input type="hidden" id="status">
+            <div id="message" class="alert alert-info"></div>
         </div>
     </div>
-    <!-- Bootstrap and FontAwesome JS -->
+    <script src="./js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
 </body>
