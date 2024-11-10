@@ -1,9 +1,8 @@
-// ติดตั้ง Express และ cors ก่อน
-// npm install express cors
+import express from 'express';   // ใช้ import แทน require
+import cors from 'cors';         // ใช้ import แทน require
 
-const express = require('express');
-const cors = require('cors');
-const fetch = require('node-fetch');
+// ใช้ dynamic import สำหรับ node-fetch
+const fetch = (await import('node-fetch')).default;
 
 const app = express();
 const PORT = 3000;
@@ -13,6 +12,9 @@ app.use(cors());
 
 // ให้ Express รองรับ JSON
 app.use(express.json());
+
+// ตั้งค่าการให้บริการไฟล์ static (html, css, js)
+app.use(express.static('public'));  // ใส่ path ของโฟลเดอร์ที่มีไฟล์ login.html เช่น 'public'
 
 // สร้าง route สำหรับ proxy ไปยัง API
 app.post('/api/auth/Ad/verify', async (req, res) => {
@@ -35,6 +37,11 @@ app.post('/api/auth/Ad/verify', async (req, res) => {
         console.error('Error:', error);
         res.status(500).json({ message: 'Internal Server Error' });
     }
+});
+
+// แสดงไฟล์ login.html
+app.get('/login', (req, res) => {
+    res.sendFile('login.html', { root: './public' });  // path ของ login.html
 });
 
 // เริ่มต้น server

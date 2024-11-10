@@ -44,47 +44,47 @@
             <h2 class="text-center">Your Profile</h2>
             <div class="mb-3">
                 <label class="form-label">Status</label>
-                <input type="text" class="form-control" id="status" placeholder="Status">
+                <input type="text" class="form-control" id="status" placeholder="Status" readonly>
             </div>
             <div class="mb-3">
                 <label class="form-label">TU Status</label>
-                <input type="text" class="form-control" id="tu_status" placeholder="TU Status">
+                <input type="text" class="form-control" id="tu_status" placeholder="TU Status" readonly>
             </div>
             <div class="mb-3">
                 <label class="form-label">Message</label>
-                <input type="text" class="form-control" id="message" placeholder="Message">
+                <input type="text" class="form-control" id="message" placeholder="Message" readonly>
             </div>
             <div class="mb-3">
                 <label class="form-label">Username</label>
-                <input type="text" class="form-control" id="username" placeholder="Username">
+                <input type="text" class="form-control" id="username" placeholder="Username" readonly>
             </div>
             <div class="mb-3">
                 <label class="form-label">Display Name (TH)</label>
-                <input type="text" class="form-control" id="displayname_th" placeholder="Display Name (TH)">
+                <input type="text" class="form-control" id="displayname_th" placeholder="Display Name (TH)" readonly>
             </div>
             <div class="mb-3">
                 <label class="form-label">Display Name (EN)</label>
-                <input type="text" class="form-control" id="displayname_en" placeholder="Display Name (EN)">
+                <input type="text" class="form-control" id="displayname_en" placeholder="Display Name (EN)" readonly>
             </div>
             <div class="mb-3">
                 <label class="form-label">Status ID</label>
-                <input type="text" class="form-control" id="statusid" placeholder="Status ID">
+                <input type="text" class="form-control" id="statusid" placeholder="Status ID" readonly>
             </div>
             <div class="mb-3">
                 <label class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" placeholder="Email">
+                <input type="email" class="form-control" id="email" placeholder="Email" readonly>
             </div>
             <div class="mb-3">
                 <label class="form-label">Type</label>
-                <input type="text" class="form-control" id="type" placeholder="Type">
+                <input type="text" class="form-control" id="type" placeholder="Type" readonly>
             </div>
             <div class="mb-3">
                 <label class="form-label">Department</label>
-                <input type="text" class="form-control" id="department" placeholder="Department">
+                <input type="text" class="form-control" id="department" placeholder="Department" readonly>
             </div>
             <div class="mb-3">
                 <label class="form-label">Faculty</label>
-                <input type="text" class="form-control" id="faculty" placeholder="Faculty">
+                <input type="text" class="form-control" id="faculty" placeholder="Faculty" readonly>
             </div>
             
             <div class="logout-container">
@@ -93,6 +93,20 @@
         </div>
     </div>
 
-    <script src="./js/script.js"></script>
+    <script>
+        window.onload = function() {
+    // ตรวจสอบข้อมูลจาก sessionStorage และแสดงในฟอร์ม
+    const fields = ['status', 'tu_status', 'message', 'username', 'displayname_th', 'displayname_en', 'statusid', 'email', 'type', 'department', 'faculty'];
+
+    fields.forEach(field => {
+        const value = sessionStorage.getItem(field);
+        if (value) {
+            document.getElementById(field).value = value; // ถ้ามีข้อมูลให้แสดงในฟอร์ม
+        } else {
+            console.warn(`No value found for ${field}`); // ถ้าไม่มีข้อมูลใน sessionStorage
+        }
+    });
+}
+    </script>
 </body>
 </html>

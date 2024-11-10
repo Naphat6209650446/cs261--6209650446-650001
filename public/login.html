@@ -47,21 +47,6 @@
             padding-bottom: 40px;
         }
 
-        .message-container {
-            background-color: #d0efff;
-            border-radius: 10px;
-            padding: 20px;
-            margin-top: 20px;
-            max-width: 90%; /* จำกัดความกว้าง */
-            word-wrap: break-word; /* ให้ข้อความตัดบรรทัดถ้ามันยาวเกินไป */
-            overflow: hidden;
-        }
-
-        .message-container p {
-            margin-bottom: 10px;
-            line-height: 1.6;   
-        }
-
         .logo-img {
             margin-top: 20px;
             height: 20%;
@@ -95,15 +80,57 @@
                         <input type="password" class="form-control" id="password" placeholder="Enter password">
                     </div>
                 </div>
-                <button type="button" onclick="submitLogin()" class="btn btn-primary w-100">submit</button>
+                <button type="button" onclick="submitLoginAndRedirect()" class="btn btn-primary w-100">login</button>
             </form>
-            <!-- Status and Message Display -->
-            <input type="hidden" id="status">
             <div id="message" class="alert alert-info"></div>
         </div>
     </div>
-    <script src="./js/script.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <script>
+        function submitLoginAndRedirect() {
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    // ตรวจสอบว่า username และ password ไม่ว่าง
+    if (!username || !password) {
+        alert("Please enter both username and password.");
+        return;
+    }
+
+    // สมมติว่าเราทำการส่งข้อมูลไปยัง API และได้รับการตอบกลับ (response)
+    // ตัวอย่างการเก็บข้อมูลที่ตอบกลับจาก API
+    const data = {
+        status: 'true',
+        message: 'Successful',
+        type: 'student',
+        tu_status: 'ปกติ',
+        statusid: '100',
+        displayname_th: 'ณภัทร โตรุ่งเรืองยศ',
+        displayname_en: 'naphat torungruengyos',
+        email: 'naphat.tor@dome.tu.ac.th',
+        department: 'ปริญญาตรีภาคพิเศษ สาขาวิชาวิทยาการคอมพิวเตอร์',
+        faculty: 'คณะวิทยาศาสตร์และเทคโนโลยี'
+    };
+
+    // เก็บข้อมูลทั้งหมดใน sessionStorage
+    sessionStorage.setItem('status', data.status);
+    sessionStorage.setItem('tu_status', data.tu_status);
+    sessionStorage.setItem('message', data.message);
+    sessionStorage.setItem('username', username);
+    sessionStorage.setItem('displayname_th', data.displayname_th);
+    sessionStorage.setItem('displayname_en', data.displayname_en);
+    sessionStorage.setItem('statusid', data.statusid);
+    sessionStorage.setItem('email', data.email);
+    sessionStorage.setItem('type', data.type);
+    sessionStorage.setItem('department', data.department);
+    sessionStorage.setItem('faculty', data.faculty);
+
+    // เปลี่ยนหน้าไปที่ submitLogin.html
+    window.location.href = 'loginSucc.html';
+}
+
+    </script>
 </body>
 </html>
