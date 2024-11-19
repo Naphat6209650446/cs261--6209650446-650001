@@ -1,111 +1,309 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>จุดประสงค์ในการกรอกคำร้อง</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-
+    <title>แบบฟอร์มการยื่นคำร้องของนักศึกษา</title>
     <style>
-        body, html {
-            height: 100%;
+        body {
             margin: 0;
-            font-family: Arial, sans-serif;
-        }
-        .bg-color {
-            background-color: #fdf5c9; 
-            height: 100vh;
-            width: 100%;
-            position: relative;
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
         }
 
-        .login-container {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 400px;
-            margin-top: 20px;
-            background-color: rgba(255, 255, 255, 0.85);
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            max-height: 90vh;
-            overflow-y: auto;
-            padding-bottom: 40px;
+        .header {
+            background-color: #ffffff;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 0 0 50px 50px;
         }
 
-        .logo-img {
-            margin-top: 20px;
-            height: 20%;
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
         }
 
-        .login-form {
-            margin-top: 20px;
+        .header .user-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .header .user-info span {
+            margin-right: 10px;
+            font-size: 14px;
+        }
+
+        .header .user-info img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
+
+        .navbar {
+            background-color: #3c3434;
+            color: white;
+            display: flex;
+            padding: 10px 20px;
+            border-radius: 0 0 50px 50px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin-right: 20px;
+            font-size: 14px;
+        }
+
+        .navbar a.active {
+            border-bottom: 2px solid white;
+        }
+
+        .container {
+        max-width: 800px;
+        margin: 40px auto; /* เพิ่มระยะห่างรอบฟอร์ม */
+        background: white;
+        padding: 40px; /* เพิ่ม padding ภายใน */
+        border-radius: 50px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-title {
+            text-align: center;
+            font-size: 25px;
             margin-bottom: 20px;
+            color: #121212;
         }
 
-        textarea {
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input {
             width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 30px;
+            font-size: 14px;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 10px;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        .icon {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .icon img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .logo {
+            margin-bottom: 10px;
+        }
+
+        .logo img {
+            max-width: 250px;
+        }
+
+        .submit-btn {
+            background-color: #E7CA29;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 30px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        .submit-btn:hover {
+            background-color: #e7cb2980;
         }
     </style>
 </head>
 <body>
-    <div class="bg-color">
-        <div style="text-align: center; margin-top: 0; height: 100%;">
-            <img src="img/TU.png" alt="TU" class="logo-img">
+    <div class="header">
+        <div class="logo">
+            <img src="img/TU-text.png" alt="Thammasat University Logo">
         </div>
-        <div class="login-container">
-            <form id="requestForm" class="login-form">
-                <h4 class="text-left">จุดประสงค์ในการกรอกคำร้อง</h4>
-                <input type="radio" id="lateRegistration" name="requestType" value="คำร้องจดทะเบียนล่าช้า/เพิ่มล่าช้า">
-                <label for="lateRegistration">คำร้องจดทะเบียนล่าช้า/เพิ่มล่าช้า</label><br>
-
-                <input type="radio" id="dropCourse" name="requestType" value="คำร้องขอถอนวิชา/ถอนรายวิชา(Drop W)">
-                <label for="dropCourse">คำร้องขอถอนวิชา/ถอนรายวิชา(Drop W)</label><br>
-
-                <input type="radio" id="crossProject" name="requestType" value="คำร้องขอจดทะเบียนศึกษารายวิชาข้ามโครงการ">
-                <label for="crossProject">คำร้องขอจดทะเบียนศึกษารายวิชาข้ามโครงการ</label><br>
-
-                <input type="radio" id="resign" name="requestType" value="คำร้องขอลาออก">
-                <label for="resign">คำร้องขอลาออก</label><br>
-
-                <input type="radio" id="other" name="requestType" value="คำร้องอื่นๆ">
-                <label for="other">อื่นๆ (โปรดระบุ)</label><br><br>
-
-                <div id="otherRequestInput" style="display: none;">
-                    <label for="otherRequestText">กรุณาระบุคำร้องอื่นๆ:</label><br>
-                    <textarea id="otherRequestText" name="otherRequest" rows="4" placeholder="กรุณาระบุจุดประสงค์คำร้องของคุณที่นี่"></textarea><br>
-                </div>
-
-                <button type="submit" id="submitBtn" class="btn btn-primary w-70 mt-3">ต่อไป</button>
-            </form>
+        <div class="user-info">
+            <span>Naphat Torungruengyos</span>
+            <img src="https://via.placeholder.com/30" alt="User Avatar">
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
-    <script>
-        // ใช้ JavaScript เพื่อแสดง/ซ่อนช่องกรอกข้อความเมื่อเลือก "คำร้องอื่นๆ"
-        const otherRadioButton = document.getElementById('other');
-        const otherRequestInput = document.getElementById('otherRequestInput');
-        const form = document.getElementById('requestForm');
+    <div class="navbar">
+        <a href="#" class="active">เขียนคำร้อง</a>
+        <a href="#">ติดตามสถานะคำร้อง</a>
+        <a href="#">ประวัติการยื่นคำร้อง</a>
+    </div>
 
-        // เมื่อเลือกคำร้อง "อื่นๆ", ให้แสดงช่องกรอกข้อความ
-        otherRadioButton.addEventListener('change', function() {
-            if (this.checked) {
-                otherRequestInput.style.display = 'block';  // แสดงช่องกรอกข้อความ
-            }
-        });
+    <div class="container">
+        <h2 class="form-title">แบบฟอร์มการยื่นคำร้องของนักศึกษา</h2>
+        <form>
+            <div class="form-group">
+                <label for="date">วันที่</label>
+                <input type="date" id="date" name="date">
+            </div>
 
-        // เมื่อกดปุ่ม "ต่อไป", เปลี่ยนหน้าไปยัง info.html
-        form.addEventListener('submit', function(event) {
-            event.preventDefault(); // ป้องกันการส่งฟอร์ม
+            <div class="icon">
+                <img src="https://via.placeholder.com/20" alt="Personal Icon">
+                <span>ข้อมูลส่วนตัว</span>
+            </div>
 
-            // เปลี่ยนหน้าไปยัง info.html
-            window.location.href = './info.html';
-        });
-    </script>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="name">ชื่อ-นามสกุล</label>
+                    <input type="text" id="name" name="name" placeholder="ชื่อ-นามสกุล">
+                </div>
+                <div class="form-group">
+                    <label for="student-id">เลขทะเบียน</label>
+                    <input type="text" id="student-id" name="student-id" placeholder="เลขทะเบียน">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="major">สาขาวิชา</label>
+                    <input type="text" id="major" name="major" placeholder="สาขาวิชา">
+                </div>
+                <div class="form-group">
+                    <label for="year">ชั้นปี</label>
+                    <input type="text" id="year" name="year" placeholder="ชั้นปี">
+                </div>
+            </div>
+
+            <div class="icon">
+                <img src="https://via.placeholder.com/20" alt="Contact Icon">
+                <span>ที่อยู่ที่สามารถติดต่อได้</span>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="address">เลขที่</label>
+                    <input type="text" id="address" name="address" placeholder="เลขที่">
+                </div>
+                <div class="form-group">
+                    <label for="subdistrict">แขวง/ตำบล</label>
+                    <input type="text" id="subdistrict" name="subdistrict" placeholder="แขวง/ตำบล">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="district">เขต/อำเภอ</label>
+                    <input type="text" id="district" name="district" placeholder="เขต/อำเภอ">
+                </div>
+                <div class="form-group">
+                    <label for="province">จังหวัด</label>
+                    <input type="text" id="province" name="province" placeholder="จังหวัด">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="student-phone">โทรศัพท์นักศึกษา</label>
+                    <input type="tel" id="student-phone" name="student-phone" placeholder="โทรศัพท์นักศึกษา">
+                </div>
+                <div class="form-group">
+                    <label for="parent-phone">โทรศัพท์ผู้ปกครอง</label>
+                    <input type="tel" id="parent-phone" name="parent-phone" placeholder="โทรศัพท์ผู้ปกครอง">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="advisor">อาจารย์ที่ปรึกษา</label>
+                <input type="text" id="advisor" name="advisor" placeholder="อาจารย์ที่ปรึกษา">
+            </div>
+
+                <form>
+                    <!-- วัตถุประสงค์ -->
+                    <div class="form-group">
+                        <label for="purpose">วัตถุประสงค์ที่จะยื่นคำร้อง</label>
+                        <select id="purpose" name="purpose">
+                            <option value="register">จดทะเบียนล่าช้า</option>
+                            <option value="dropw">ขอถอนวิชา/ถอนรายวิชา(Drop W)</option>
+                            <option value="dropw">ขอจดทะเบียนศึกษารายวิชาข้ามโครงการ</option>
+                            <option value="dropw">ขอลาออก</option>
+                            <option value="other">อื่น ๆ</option>
+                        </select>
+                    </div>
+        
+                    <!-- รายละเอียดวิชา -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="semester">ภาคเรียนที่</label>
+                            <div style="display: flex; gap: 10px;">
+                                <input type="text" id="semester-year" name="semester-year" placeholder="เทอม" style="flex: 1; text-align: center;">
+                                <span style="align-self: center;">/</span>
+                                <input type="text" id="semester-term" name="semester-term" placeholder="ปีกาารศึกษา" style="flex: 1; text-align: center;">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="course-code">รหัสวิชา</label>
+                            <input type="text" id="course-code" name="course-code" placeholder="รหัสวิชา">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="course-name">ชื่อวิชา</label>
+                            <input type="text" id="course-name" name="course-name" placeholder="ชื่อวิชา">
+                        </div>
+                        <div class="form-group">
+                            <label for="section">Section</label>
+                            <input type="text" id="section" name="section" placeholder="Section">
+                        </div>
+                    </div>
+        
+                    <!-- เหตุผล -->
+                    <div class="form-group">
+                        <label for="reason">เหตุผลที่ยื่นคำร้อง</label>
+                        <select id="reason" name="reason">
+                            <option value="financial">ปัญหาด้านการเงิน</option>
+                            <option value="academic">ปัญหาด้านสุขภาพ</option>
+                            <option value="other">อื่น ๆ</option>
+                        </select>
+                    </div>
+        
+                    <!-- รายละเอียดเพิ่มเติม -->
+                    <div class="form-group">
+                        <label for="details">อื่น ๆ</label>
+                        <textarea id="details" name="details" rows="4" placeholder="อธิบาย..."></textarea>
+                    </div>
+        
+                    <!-- แนบเอกสาร -->
+                    <div class="form-group">
+                        <label for="file-upload">แนบไฟล์เอกสาร</label>
+                        <input type="file" id="file-upload" name="file-upload">
+                    </div>
+        
+                    <!-- ปุ่มส่ง -->
+                    <button type="submit" class="submit-btn">ส่งคำร้อง</button>
+                </form>
+            </div>
+        </form>
+    </div>
 </body>
 </html>

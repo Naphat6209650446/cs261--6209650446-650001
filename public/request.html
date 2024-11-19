@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thammasat University</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            width: 100%;
+            max-width: 600px; /* เพิ่มขนาดความกว้าง */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border: 1px solid #d3d3d3;
+        }
+
+        .logo {
+            margin-bottom: 20px;
+        }
+
+        .logo img {
+            max-width: 400px;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: space-around; /* จัดให้เมนูมีระยะห่างเท่ากัน */
+            gap: 10px;
+        }
+
+        .menu-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            border: 2px solid #f9c12b;
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+        }
+
+        .menu-item img {
+            width: 40px;
+            height: auto;
+        }
+
+        .menu-item span {
+            font-size: 14px;
+            color: #555;
+            text-align: center;
+            position: absolute;
+            bottom: -20px; /* จัดให้อยู่ตรงกลางและลดระยะลง */
+            width: 100%; /* ให้ข้อความขยายเต็มความกว้าง */
+        }
+
+        .menu-item:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="img/TU-text.png" alt="Thammasat University Logo">
+        </div>
+        <div class="menu">
+            <!-- เมนูทั้งหมดในแถวเดียว -->
+            <a href="req.html" class="menu-item">
+                <img src="img/writeR.png" alt="คำร้องใหม่">
+                <span>คำร้องใหม่</span>
+            </a>
+            <a href="request.html" class="menu-item">
+                <img src="img/accR.png" alt="กำลังดำเนินการ">
+                <span>กำลังดำเนินการ</span>
+            </a>
+            <a href="history.html" class="menu-item">
+                <img src="img/timeR.png" alt="ประวัติคำร้อง">
+                <span>ประวัติคำร้อง</span>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

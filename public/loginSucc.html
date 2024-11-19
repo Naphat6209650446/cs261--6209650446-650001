@@ -1,103 +1,130 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login succ</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- FontAwesome for Icons -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-
+    <title>Thammasat University</title>
     <style>
-        body, html {
-            height: 100%;
-            margin: 0;
+        body {
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
-        .bg-color {
-            background-color: #fdf5c9; 
-            height: 100vh;
+
+        .container {
+            text-align: center;
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
             width: 100%;
-            position: relative;
-        }
-        .bg-image {
-            margin-top: 0;
-            background-image: url('img/Picture1.png');
-            height: calc(100vh - 40px);
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            position: relative;
-            filter: brightness(70%);
+            max-width: 600px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border: 1px solid #d3d3d3;
         }
 
-            .login-container {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 340px;
-        margin-top: 20px;
-        background-color: transparent; /* เปลี่ยนเป็นโปร่งใส */
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: none; /* ลบเงา */
-        max-height: 90vh;
-        overflow-y: auto;
-        padding-bottom: 40px;
-        }   
-
-        .btn-custom {
-            padding: 12px 20px;         /* ปรับขนาดปุ่ม */
-            font-size: 1.2rem;          /* ปรับขนาดตัวหนังสือ */
-            background-color: #d45e5e;  /* สีพื้นหลังเป็นสีเหลือง */
-            color: black;               /* ตัวหนังสือเป็นสีดำ */
-            border: none;               /* ลบกรอบปุ่ม */
-            border-radius: 5px;         /* มุมปุ่มโค้ง */
-            margin-top: 20px;            /* เว้นระยะห่างจากขอบบน */
-            width: 10%;                 /* ให้ปุ่มยืดเต็มความกว้าง */
-            display: block;             /* ให้ปุ่มขึ้นบรรทัดใหม่ */
-        }
-
-        .logo-img {
-            margin-top: 20px;
-            height: 20%;
-        }
-
-        .login-form {
-            margin-top: 20px;
+        .logo {
             margin-bottom: 20px;
+        }
+
+        .logo img {
+            max-width: 400px;
+        }
+
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #d32f2f;
+            margin: 10px 0;
+        }
+
+        .subtitle {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .menu {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .menu-row {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .menu-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            border: 2px solid #d32f2f; /* เปลี่ยนเป็นสีแดง */
+            border-radius: 50%;
+            width: 80px; /* ลดขนาดวงกลม */
+            height: 80px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            position: relative; /* เพื่อจัดตำแหน่งตัวหนังสือ */
+        }
+
+        .menu-item img {
+            width: 40px; /* ลดขนาดไอคอน */
+            height: auto;
+        }
+
+        .menu-item span {
+            font-size: 14px;
+            color: #555;
+            text-align: center;
+            position: absolute; /* จัดให้อยู่ข้างล่าง */
+            bottom: -20px; /* ปรับระยะลงด้านล่าง */
+        }
+
+        .menu-item:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
 <body>
-    <div class="bg-color">
-        <div style="text-align: center; margin-top: 0; height: 100%;">
-            <img src="img/TU.png" alt="TU" class="logo-img">
-            <h5 id="usernameDisplay">ยินดีต้อนรับคุณ <span id="displayName"></span></h5>
-            <form class="login-form">
-        <button type="button" onclick="window.location.href='login.html'" class="btn btn-custom">ค้นหารายวิชา</button>
-        <button type="button" onclick="window.location.href='req.html'" class="btn btn-custom">เขียนคำร้อง</button>
-        <button type="button" onclick="window.location.href='login.html'" class="btn btn-custom">ผลการจดทะเบียน</button>
-        <button type="button" onclick="window.location.href='login.html'" class="btn btn-custom">ติดตามสถานะคำร้อง</button>
-        <button type="button" onclick="window.location.href='login.html'" class="btn btn-custom" >ออกจากระบบ</button>
-        </form>
+    <div class="container">
+        <div class="logo">
+            <img src="img/TU-text.png" alt="Thammasat University Logo">
+        </div>
+        <div class="menu">
+            <!-- แถวที่ 1: ข้อมูลของคุณ, เขียนคำร้อง -->
+            <div class="menu-row">
+                <a href="info.html" class="menu-item">
+                    <img src="img/acc1.png" alt="ข้อมูลของคุณ">
+                    <span>ข้อมูลของคุณ</span>
+                </a>
+                <a href="request.html" class="menu-item">
+                    <img src="img/write.png" alt="เขียนคำร้อง">
+                    <span>เขียนคำร้อง</span>
+                </a>
+            </div>
+            <!-- แถวที่ 2: ติดตามสถานะคำร้อง, ประวัติการยื่นคำร้อง -->
+            <div class="menu-row">
+                <a href="status.html" class="menu-item">
+                    <img src="img/acc.png" alt="ติดตามสถานะคำร้อง">
+                    <span>ติดตามสถานะคำร้อง</span>
+                </a>
+                <a href="history.html" class="menu-item">
+                    <img src="img/time.png" alt="ประวัติการยื่นคำร้อง">
+                    <span>ประวัติการยื่นคำร้อง</span>
+                </a>
+            </div>
         </div>
     </div>
-</div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
-    <script>
-        // ดึงค่าจาก sessionStorage
-        const username = sessionStorage.getItem('username');
-        const displayname_th = sessionStorage.getItem('displayname_th');
-
-        // แสดงค่าที่ดึงมาในส่วน header
-        document.getElementById('usernameDisplay').textContent = `ยินดีต้อนรับคุณ ${displayname_th} ${username}`;
-        document.getElementById('displayName').textContent = displayname_th;
-  </script>
-
-    </script>
 </body>
 </html>

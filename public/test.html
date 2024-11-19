@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown แบบปุ่ม</title>
+    <style>
+        /* สไตล์ทั่วไป */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        /* Dropdown button */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-btn {
+            padding: 10px 20px;
+            border: 2px solid #ccc;
+            border-radius: 30px;
+            background-color: #f9f9f9;
+            color: #333;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+            width: 100%;
+        }
+
+        .dropdown-btn:hover {
+            background-color: #e0e0e0;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 10px;
+            z-index: 1000;
+            width: 100%;
+        }
+
+        .dropdown-menu button {
+            padding: 10px;
+            width: 100%;
+            text-align: left;
+            border: none;
+            background-color: white;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .dropdown-menu button:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown-menu button.active {
+            background-color: #d32f2f;
+            color: white;
+        }
+
+        .dropdown.open .dropdown-menu {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-group">
+        <label for="reason">เหตุผลที่ยื่นคำร้อง</label>
+        <div class="dropdown" id="dropdown-reason">
+            <button class="dropdown-btn" id="dropdown-btn-reason">เลือกเหตุผล</button>
+            <div class="dropdown-menu">
+                <button type="button" data-value="financial">ปัญหาด้านการเงิน</button>
+                <button type="button" data-value="academic">ปัญหาด้านสุขภาพ</button>
+                <button type="button" data-value="other">อื่น ๆ</button>
+            </div>
+        </div>
+        <input type="hidden" id="reason" name="reason">
+    </div>
+
+    <script>
+        const dropdown = document.getElementById('dropdown-reason');
+        const dropdownBtn = document.getElementById('dropdown-btn-reason');
+        const dropdownMenu = dropdown.querySelector('.dropdown-menu');
+        const hiddenInput = document.getElementById('reason');
+
+        // เปิด/ปิดเมนู dropdown
+        dropdownBtn.addEventListener('click', () => {
+            dropdown.classList.toggle('open');
+        });
+
+        // เลือกตัวเลือก
+        dropdownMenu.querySelectorAll('button').forEach(button => {
+            button.addEventListener('click', function () {
+                // ตั้งค่าข้อความในปุ่มหลัก
+                dropdownBtn.textContent = this.textContent;
+                // บันทึกค่าใน input hidden
+                hiddenInput.value = this.getAttribute('data-value');
+                // ปิด dropdown
+                dropdown.classList.remove('open');
+                // กำหนด active ให้ปุ่มที่เลือก
+                dropdownMenu.querySelectorAll('button').forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // ปิด dropdown เมื่อคลิกนอกพื้นที่
+        document.addEventListener('click', (event) => {
+            if (!dropdown.contains(event.target)) {
+                dropdown.classList.remove('open');
+            }
+        });
+    </script>
+</body>
+</html>
