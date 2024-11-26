@@ -11,7 +11,7 @@
             height: 100%;
             margin: 0;
             font-family: Arial, sans-serif;
-            background-image: url('img/background.jpg'); /* Replace with your background image path */
+            background-image: url('img/background.jpg');
             background-size: cover;
             background-position: center;
         }
@@ -23,7 +23,7 @@
             transform: translate(-50%, -50%);
             width: 100%;
             max-width: 400px;
-            background: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+            background: rgba(255, 255, 255, 0.9);
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             padding: 20px 30px;
@@ -39,7 +39,7 @@
             font-size: 1.5rem;
             font-weight: bold;
             margin-bottom: 20px;
-            color: #d81b60; /* TU red color */
+            color: #d81b60;
         }
 
         .form-control {
@@ -97,33 +97,28 @@
                 </div>
             </div>
 
-            <div class="login-footer">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="rememberMe">
-                    <label class="form-check-label" for="rememberMe">Remember me</label>
-                </div>
-                <a href="#">Forgot password?</a>
-            </div>
-
             <button type="button" onclick="submitLoginAndRedirect()" class="btn btn-login mt-3">Login</button>
         </form>
     </div>
 
     <script>
         function submitLoginAndRedirect() {
+            // กำหนด username และ password ที่ต้องการ
+            const requiredUsername = '6209650446';
+            const requiredPassword = '1103703295519';
+
+            // ดึงค่าที่ผู้ใช้กรอกจากฟอร์ม
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
 
-            if (!username || !password) {
-                alert('Please enter both username and password.');
-                return;
+            // ตรวจสอบว่าค่าที่กรอกถูกต้องหรือไม่
+            if (username === requiredUsername && password === requiredPassword) {
+                alert('Login successful!');
+                window.location.href = 'loginSucc.html';
+            } else {
+                // แจ้งเตือนเมื่อข้อมูลไม่ถูกต้อง
+                alert('Invalid username or password. Access denied.');
             }
-
-            // Example of storing session data (replace with API call)
-            sessionStorage.setItem('username', username);
-            sessionStorage.setItem('type', 'student');
-
-            window.location.href = 'loginSucc.html';
         }
     </script>
 </body>
