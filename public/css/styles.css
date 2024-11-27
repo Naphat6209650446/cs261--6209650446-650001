@@ -45,3 +45,162 @@ button:hover {
     margin-top: 20px;
     text-align: center;
 }
+
+/* สไตล์สำหรับ track-status.html */
+#trackForm {
+    display: flex; /* ใช้จัดเรียงฟอร์มและปุ่ม */
+    flex-direction: column; /* เรียงจากบนลงล่าง */
+    align-items: center; /* จัดให้อยู่ตรงกลาง */
+    gap: 10px; /* ระยะห่างระหว่างองค์ประกอบ */
+}
+
+#trackForm input[type="text"] {
+    width: 100px; /* กำหนดความกว้างให้ชัดเจน */
+    padding: 10px; /* เพิ่มความสมดุลภายในกรอบ */
+    border: 1px solid #ccc; /* เส้นขอบ */
+    border-radius: 5px; /* มุมมน */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* เงาเพิ่มความชัดเจน */
+}
+
+#trackForm button {
+    border-radius: 10px; /* ลดความโค้งมน */
+    background-color: #007bff; /* สีพื้นหลัง */
+    color: white; /* สีตัวอักษร */
+    border: none; /* ลบเส้นขอบ */
+    padding: 3px 10px; /* ลด padding ให้เล็กลง */
+    font-size: 12px; /* ลดขนาดตัวอักษร */
+    width: auto; /* ไม่บังคับความกว้าง */
+    max-width: 100px; /* กำหนดความกว้างสูงสุด */
+    cursor: pointer; /* เปลี่ยนเคอร์เซอร์เมื่อ hover */
+    transition: background-color 0.3s ease; /* เพิ่มเอฟเฟกต์ hover */
+}
+
+#trackForm button:hover {
+    background-color: #0056b3; /* สีพื้นหลังเมื่อ hover */
+}
+
+
+
+.result-card {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    font-size: 16px;
+  }
+  
+  .result-card p {
+    margin: 5px 0;
+  }
+  
+
+#result {
+    display: none;
+}
+
+
+.header {
+    background-color: #ffffff;
+    color: rgb(9, 9, 9);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0 0 50px 50px;
+}
+
+.header .user-info {
+    display: flex;
+    align-items: center;
+}
+
+.header .user-info span {
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+.header .user-info img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.navbar {
+    background-color: #3c3434;
+    color: white;
+    display: flex;
+    padding: 10px 20px;
+    justify-content: space-evenly;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+    font-size: 18px;
+    padding: 5px 15px;
+    font-weight: bold;
+}
+
+.navbar a.active {
+    background-color: #8d1b3d;
+    border-radius: 20px;
+}
+
+.navbar-brand img {
+    width: 80px !important; /* ลดขนาดของโลโก้ */
+    height: auto !important; /* คงอัตราส่วนภาพ */
+    margin-right: 10px !important; /* ระยะห่าง */
+}
+
+
+
+.navbar {
+    padding: 10px 20px; /* ลด padding เพื่อให้ bar เล็กลง */
+}
+
+
+
+  .container {
+    max-width: 500px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.form-title {
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.result-card {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.submit-btn {
+    background-color: #8d1b3d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-color: #5e5151;
+}

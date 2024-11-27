@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ติดตามสถานะคำร้อง</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="logo">
+            <img src="img/TU-text.png" alt="Thammasat University Logo">
+        </div>
+        <div class="user-info">
+            <span>Naphat Torungruengyos</span>
+            <img src="img/acc1.png" alt="User Avatar">
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href="req.html">เขียนคำร้อง</a>
+        <a href="track-status.html" class="active">ติดตามสถานะคำร้อง</a>
+        <a href="history.html">ประวัติการยื่นคำร้อง</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h2 class="form-title">ติดตามสถานะคำร้อง</h2>
+        <form id="trackForm">
+            <label for="requestId">กรุณากรอกหมายเลขคำร้อง:</label>
+            <input type="text" id="requestId" required>
+            <button type="submit" class="submit-btn">ค้นหา</button>
+        </form>
+        <div id="result" class="result-card"></div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -44,6 +44,31 @@ app.get('/login', (req, res) => {
     res.sendFile('login.html', { root: './public' });  // path ของ login.html
 });
 
+
+// เพิ่ม route สำหรับ track-request/:id
+app.get('/track-request/:id', (req, res) => {
+    const requestId = req.params.id;
+
+    // ตัวอย่างข้อมูลจำลอง (mock data)
+    const mockData = {
+        "1": { title: "จดทะเบียนล่าช้า", status: "กำลังดำเนินการ" },
+        "2": { title: "เปลี่ยนแปลงวิชาเรียน", status: "เสร็จสิ้น" },
+    };
+
+    // ตรวจสอบว่ามีคำร้องที่ระบุหรือไม่
+    if (mockData[requestId]) {
+        res.json(mockData[requestId]);
+    } else {
+        res.status(404).json({ message: "ไม่พบคำร้องที่ระบุ" });
+    }
+});
+
+
+
+
+
+
+
 // เริ่มต้น server
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);

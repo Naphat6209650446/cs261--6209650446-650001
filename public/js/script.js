@@ -58,3 +58,32 @@ function submitLogin() {
         alert('Login failed. Please check your credentials.');
     });
 }
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const trackForm = document.getElementById('trackForm');
+    if (trackForm) {
+        trackForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const requestId = document.getElementById('requestId').value;
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = ''; // ล้างผลลัพธ์เก่า
+
+            try {
+                const response = await fetch(`/track-request/${requestId}`);
+                if (!response.ok) throw new Error('ไม่พบคำร้องที่ระบุ');
+                const data = await response.json();
+                resultDiv.style.display = 'block';
+                resultDiv.className = 'result-card';
+                resultDiv.innerHTML = `
+                    <p>เรื่อง: ${data.title}</p>
+                    <p>สถานะ: ${data.status}</p>
+                `;
+            } catch (error) {
+                resultDiv.style.display = 'block';
+                resultDiv.innerHTML = `<p class="error">${error.message}</p>`;
+            }
+        });
+    }
+});
+
