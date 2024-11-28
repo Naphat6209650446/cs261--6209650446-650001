@@ -7,6 +7,33 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+    <style>
+        .logo img {
+            max-width: 250px;
+        }
+
+        .navbar {
+            background-color: #3c3434;
+            color: white;
+            display: flex;
+            padding: 10px 20px;
+            justify-content: space-evenly;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin-right: 20px;
+            font-size: 18px;
+            padding: 5px 15px;
+            font-weight: bold;
+        }
+
+        .navbar a.active {
+            background-color: #8d1b3d;
+            border-radius: 20px;
+        }
+    </style>
     <!-- Header -->
     <div class="header">
         <div class="logo">
@@ -22,7 +49,7 @@
     <div class="navbar">
         <a href="req.html">เขียนคำร้อง</a>
         <a href="track-status.html" class="active">ติดตามสถานะคำร้อง</a>
-        <a href="history.html">ประวัติการยื่นคำร้อง</a>
+        <a href="status.html">ประวัติการยื่นคำร้อง</a>
     </div>
 
     <!-- Main Content -->
@@ -31,7 +58,7 @@
         <form id="trackForm">
             <label for="requestId">กรุณากรอกหมายเลขคำร้อง:</label>
             <input type="text" id="requestId" required>
-            <button type="submit" class="submit-btn">ค้นหา</button>
+            <button type="submit" class="submit-btn" style="background-color: #bab348; color: white; border-radius: 20px; padding: 10px 20px; border: none;">ค้นหา</button>
         </form>
         <div id="result" class="result-card"></div>
     </div>

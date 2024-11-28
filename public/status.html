@@ -53,25 +53,22 @@
             background-color: #3c3434;
             color: white;
             display: flex;
+            padding: 10px 20px;
             justify-content: space-evenly;
-            padding: 10px 0;
         }
 
         .navbar a {
             color: white;
             text-decoration: none;
-            font-size: 16px;
-            padding: 10px 20px;
-            border-radius: 20px;
-            transition: background-color 0.3s;
+            margin-right: 20px;
+            font-size: 18px;
+            padding: 5px 15px;
+            font-weight: bold;
         }
 
         .navbar a.active {
             background-color: #8d1b3d;
-        }
-
-        .navbar a:hover {
-            background-color: #5e5151;
+            border-radius: 20px;
         }
 
         .container {
@@ -217,9 +214,9 @@
 
     <!-- Navbar -->
     <div class="navbar">
-        <a href="#">เขียนคำร้อง</a>
-        <a href="#">ติดตามสถานะคำร้อง</a>
-        <a href="#" class="active">ประวัติการยื่นคำร้อง</a>
+        <a href="req.html">เขียนคำร้อง</a>
+        <a href="track-status.html">ติดตามสถานะคำร้อง</a>
+        <a href="status.html" class="active">ประวัติการยื่นคำร้อง</a>
     </div>
 
     <!-- Container for status history -->
@@ -282,7 +279,7 @@
             });
         </script>
 
-        <div style="text-align: center; margin-top: 20px;">
+        <div style="text-align: center;">
             <button style="background-color: #8d1b3d; color: white; border-radius: 20px; padding: 10px 20px; border: none;">ดูทั้งหมด</button>
         </div>
     </div>
